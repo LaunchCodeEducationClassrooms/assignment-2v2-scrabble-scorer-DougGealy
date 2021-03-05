@@ -21,7 +21,7 @@ function oldScrabbleScorer(word) {
  
 	for (let i = 0; i < word.length; i++) {
     //loops over the word for each letter
-	  for (const pointValue in oldPointStructure) {
+	  //for (const pointValue in oldPointStructure) {
       //goes over each KEY in oldPointStructure once and follows instructions below
       // line 19+ line 21 goes over each KEY in object once for each letter in word entered
 		 if (oldPointStructure[pointValue].includes(word[i])) {
@@ -31,7 +31,7 @@ function oldScrabbleScorer(word) {
 		 }
  
 	  }
-	}
+	
   console.log(letterPoints);
 	return letterPoints;
  };
@@ -71,7 +71,7 @@ let simpleScore = {
 };
 function vowelBonusScore1(word) {
   word = word.toUpperCase();
-	let letterPoints = "";
+	let letterPoints = 0;
  
 	for (let i = 0; i < word.length; i++) {
     //loops over the word for each letter
@@ -80,15 +80,18 @@ function vowelBonusScore1(word) {
       // line 19+ line 21 goes over each KEY in object once for each letter in word entered
 		 if (vowelBonusScore[pointValue].includes(word[i])) {
 			// if the KEY (number) in oldPointStructure object includes the letter of the word we're looking at in the outer loop then do: 
-      letterPoints += `Points for '${word[i]}': ${pointValue}\n`
+      letterPoints += `Score for '${word[i]}': ${pointValue}\n`
       //add the text above "Points for ${lettr of word} : ${KEY (number that equals points)}"
-		 }
+      //letterPoints += `Score for '${word[i]}': ${pointValue}\n`
+		 //let letter = word[i];
+      //letterPoints += vowelBonusScore[letter];
+     }
  
 	  }
 	}
-  console.log(letterPoints);
+  //console.log(letterPoints);
 	return letterPoints;
-}
+};
 
 let vowelBonusScore = {
   1: ['L', 'N', 'R', 'S', 'T', 'D', 'G', 'B', 'C', 'M', 'P', 'F', 'H', 'V', 'W', 'Y', 'K', 'J', 'X', 'Q', 'Z'],
@@ -147,16 +150,16 @@ function scorerPrompt() {
   userChoice = input.question("Enter 0, 1, or 2: ");
   if (userChoice == 0) {
     //console.log("algorithm name: ", scoringAlgorithms[0].name);
-    console.log("scoringFunction result: ", scoringAlgorithms[0].scoringFunction(userWord)); 
+    console.log("Score for", "'" + userWord + "'" + ":", scoringAlgorithms[0].scoringFunction(userWord)); 
   } else if (userChoice == 1) {
     //console.log("algorithm name: ", scoringAlgorithms[1].name);
-    console.log("scoringFunction result: ", scoringAlgorithms[1].scoringFunction(userWord)); 
+    console.log("Score for", "'" + userWord + "'" + ":", scoringAlgorithms[1].scoringFunction(userWord)); 
   } else if (userChoice == 2) {
     //console.log("algorithm name: ", scoringAlgorithms[2].name);
     console.log("Score for", "'" + userWord + "'" + ":", scoringAlgorithms[2].scoringFunction(userWord));
   }
-  
-}
+  //"Score for", "'" + userWord + "'" + ":"
+};
 
 function transform(oldPointStructure) {
   for (items in oldPointStructure) {
