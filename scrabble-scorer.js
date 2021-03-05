@@ -18,6 +18,7 @@ const oldPointStructure = {
 function oldScrabbleScorer(userWord) {
 	userWord = userWord.toUpperCase();
 	let letterPoints = "";
+  let totalPoints = 0;
  
 	for (let i = 0; i < userWord.length; i++) {
     //loops over the word for each letter
@@ -27,6 +28,7 @@ function oldScrabbleScorer(userWord) {
 		 if (oldPointStructure[pointValue].includes(userWord[i])) {
 			// if the KEY (number) in oldPointStructure object includes the letter of the word we're looking at in the outer loop then do: 
       letterPoints += `Points for '${userWord[i]}': ${pointValue}\n`
+      totalPoints += Number(pointValue);
       //totalPoints += 
       //add the text above "Points for ${lettr of word} : ${KEY (number that equals points)}"
 		 }
@@ -34,7 +36,7 @@ function oldScrabbleScorer(userWord) {
 	  }
 	
   console.log(letterPoints);
-	return letterPoints;
+	return totalPoints;
  };
 
 // your job is to finish writing these functions and variables that we've named //
@@ -48,6 +50,7 @@ function initialPrompt() {
 function simpleScoreOne(userWord) {
   	userWord = userWord.toUpperCase();
 	let letterPoints = "";
+  let totalPoints = 0;
  
 	for (let i = 0; i < userWord.length; i++) {
     //loops over the word for each letter
@@ -57,14 +60,15 @@ function simpleScoreOne(userWord) {
 		 if (simpleScore[pointValue].includes(userWord[i])) {
 			// if the KEY (number) in oldPointStructure object includes the letter of the word we're looking at in the outer loop then do: 
       letterPoints += `Points for '${userWord[i]}': ${pointValue}\n`
+      totalPoints += Number(pointValue);
       //add the text above "Points for ${lettr of word} : ${KEY (number that equals points)}"
       
 		 }
  
 	  }
 	}
-  console.log(letterPoints);
-	return letterPoints;
+  //console.log(letterPoints);
+	return totalPoints;
 };
 
 let simpleScore = {
@@ -73,6 +77,7 @@ let simpleScore = {
 function vowelBonusScoreOne(userWord) {
   userWord = userWord.toUpperCase();
 	let letterPoints = "";
+  let totalPoints = 0;
  
 	for (let i = 0; i < userWord.length; i++) {
     //loops over the word for each letter
@@ -82,6 +87,7 @@ function vowelBonusScoreOne(userWord) {
 		 if (vowelBonusScore[pointValue].includes(userWord[i])) {
 			// if the KEY (number) in oldPointStructure object includes the letter of the word we're looking at in the outer loop then do: 
       letterPoints += `Score for '${userWord[i]}': ${pointValue}\n`
+      totalPoints += Number(pointValue);
       //add the text above "Points for ${lettr of word} : ${KEY (number that equals points)}"
       //letterPoints += `Score for '${word[i]}': ${pointValue}\n`
 		 //let letter = word[i];
@@ -91,7 +97,7 @@ function vowelBonusScoreOne(userWord) {
 	  }
 	}
   //console.log(letterPoints);
-	return letterPoints;
+	return totalPoints;
 };
 
 let vowelBonusScore = {
@@ -154,15 +160,15 @@ function scorerPrompt() {
   userChoice = input.question("Enter 0, 1, or 2: ");
   if (userChoice == 0) {
     //console.log("algorithm name: ", scoringAlgorithms[0].name);
-    console.log("Score for", "'" + userWord + "'" + ":", scoringAlgorithms[0].scoringFunction(userWord)); 
+    console.log( "Score for", "'" + userWord + "'" + ": " + scoringAlgorithms[0].scoringFunction(userWord)); 
   } else if (userChoice == 1) {
     //console.log("algorithm name: ", scoringAlgorithms[1].name);
-    console.log("Score for", "'" + userWord + "'" + ":", scoringAlgorithms[1].scoringFunction(userWord)); 
+    console.log( "Score for", "'" + userWord + "'" + ": " + scoringAlgorithms[1].scoringFunction(userWord)); 
   } else if (userChoice == 2) {
     //console.log("algorithm name: ", scoringAlgorithms[2].name);
-    console.log("Score for", "'" + userWord + "'" + ":", scoringAlgorithms[2].scoringFunction(userWord));
+    console.log( "Score for", "'" + userWord + "'" + ": " + scoringAlgorithms[2].scoringFunction(userWord));
   }
-  //"Score for", "'" + userWord + "'" + ":"
+  "Score for", "'" + userWord + "'" + ":"
 };
 
 function transform(oldPointStructure) {
