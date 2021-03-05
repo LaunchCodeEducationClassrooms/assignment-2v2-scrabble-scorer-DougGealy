@@ -45,7 +45,7 @@ function initialPrompt() {
   userWord = input.question("Enter a word to score: ");
 };
 
-function simpleScoreOne(word) {
+function simpleScoreOne(userWord) {
   	userWord = userWord.toUpperCase();
 	let letterPoints = "";
  
@@ -72,7 +72,7 @@ let simpleScore = {
 };
 function vowelBonusScoreOne(userWord) {
   userWord = userWord.toUpperCase();
-	let letterPoints = 0;
+	let letterPoints = "";
  
 	for (let i = 0; i < userWord.length; i++) {
     //loops over the word for each letter
@@ -125,29 +125,32 @@ function scrabbleScore(userWord) {
 
 const scoringAlgorithms = [];
 let simpleScoreObject = {
-  name: "Simple Score",
+  name: "0 - Simple:",
   description: "Each letter is worth 1 point.",
   scoringFunction: simpleScoreOne,
 }
 
 let bonusVowelObject = {
-  name: "Bonus Vowels",
+  name: "1 - Bonus Vowels:",
   description: "Vowels are 3 pts, consonants are 1 pt.",
   scoringFunction: vowelBonusScoreOne,
 }
 
 let scrabbleObject = {
-  name: "Scrabble",
-  description: "The traditional scoring algorithm.",
+  name: "2 - Scrabble:",
+  description: "Uses scrabble point system.",
   scoringFunction: scrabbleScore,
 }
 
 scoringAlgorithms.push(simpleScoreObject, bonusVowelObject, scrabbleObject);
 //console.log(scoringAlgorithms);
-//scoringAlgorithms.push(oldPointStructure, simpleScore, vowelBonusScore);
+//scoringAlgorithms.push(scrabbleScore, simpleScore, vowelBonusScore);
 function scorerPrompt() {
   console.log("Which scoring algorithm would you like to use?\n");
-  console.log("0 - Simple: One point per character\n" + "1 - Vowel Bonus: Vowels are worth 3 points\n" + "2 - Scrabble: Uses scrabble point system");
+  console.log(scoringAlgorithms[0].name, scoringAlgorithms[0].description);
+  console.log(scoringAlgorithms[1].name, scoringAlgorithms[1].description);
+  console.log(scoringAlgorithms[2].name, scoringAlgorithms[2].description);
+  //console.log("0 - Simple: One point per character\n" + "1 - Vowel Bonus: Vowels are worth 3 points\n" + "2 - Scrabble: Uses scrabble point system");
   userChoice = input.question("Enter 0, 1, or 2: ");
   if (userChoice == 0) {
     //console.log("algorithm name: ", scoringAlgorithms[0].name);
