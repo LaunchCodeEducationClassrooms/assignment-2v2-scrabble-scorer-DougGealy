@@ -222,6 +222,7 @@ let newPointStructure = transform(oldPointStructure);
 //console.log("letter z: ", newPointStructure["z"]);
 function runProgram() {
   // THIS IS WHAT OUR PROGRAM WILL DO WHEN WE RUN IT!
+  let word = userWord
    initialPrompt();
    scorerPrompt();
    //simpleScore1(userWord);
