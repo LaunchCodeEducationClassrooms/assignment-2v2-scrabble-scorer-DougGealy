@@ -15,18 +15,18 @@ const oldPointStructure = {
   10: ['Q', 'Z']
 };
 
-function oldScrabbleScorer(word) {
-	word = word.toUpperCase();
+function oldScrabbleScorer(userWord) {
+	userWord = userWord.toUpperCase();
 	let letterPoints = "";
  
-	for (let i = 0; i < word.length; i++) {
+	for (let i = 0; i < userWord.length; i++) {
     //loops over the word for each letter
 	  //for (const pointValue in oldPointStructure) {
       //goes over each KEY in oldPointStructure once and follows instructions below
       // line 19+ line 21 goes over each KEY in object once for each letter in word entered
-		 if (oldPointStructure[pointValue].includes(word[i])) {
+		 if (oldPointStructure[pointValue].includes(userWord[i])) {
 			// if the KEY (number) in oldPointStructure object includes the letter of the word we're looking at in the outer loop then do: 
-      letterPoints += `Points for '${word[i]}': ${pointValue}\n`
+      letterPoints += `Points for '${userWord[i]}': ${pointValue}\n`
       //totalPoints += 
       //add the text above "Points for ${lettr of word} : ${KEY (number that equals points)}"
 		 }
@@ -46,17 +46,17 @@ function initialPrompt() {
 };
 
 function simpleScoreOne(word) {
-  	word = word.toUpperCase();
+  	userWord = userWord.toUpperCase();
 	let letterPoints = "";
  
-	for (let i = 0; i < word.length; i++) {
+	for (let i = 0; i < userWord.length; i++) {
     //loops over the word for each letter
 	  for (const pointValue in simpleScore) {
       //goes over each KEY in oldPointStructure once and follows instructions below
       // line 19+ line 21 goes over each KEY in object once for each letter in word entered
-		 if (simpleScore[pointValue].includes(word[i])) {
+		 if (simpleScore[pointValue].includes(userWord[i])) {
 			// if the KEY (number) in oldPointStructure object includes the letter of the word we're looking at in the outer loop then do: 
-      letterPoints += `Points for '${word[i]}': ${pointValue}\n`
+      letterPoints += `Points for '${userWord[i]}': ${pointValue}\n`
       //add the text above "Points for ${lettr of word} : ${KEY (number that equals points)}"
       
 		 }
@@ -70,18 +70,18 @@ function simpleScoreOne(word) {
 let simpleScore = {
     1: ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T','D', 'G', 'B', 'C', 'M', 'P', 'F', 'H', 'V', 'W', 'Y', 'K', 'J', 'X', 'Q', 'Z']
 };
-function vowelBonusScoreOne(word) {
-  word = word.toUpperCase();
+function vowelBonusScoreOne(userWord) {
+  userWord = userWord.toUpperCase();
 	let letterPoints = 0;
  
-	for (let i = 0; i < word.length; i++) {
+	for (let i = 0; i < userWord.length; i++) {
     //loops over the word for each letter
 	  for (const pointValue in vowelBonusScore) {
       //goes over each KEY in oldPointStructure once and follows instructions below
       // line 19+ line 21 goes over each KEY in object once for each letter in word entered
-		 if (vowelBonusScore[pointValue].includes(word[i])) {
+		 if (vowelBonusScore[pointValue].includes(userWord[i])) {
 			// if the KEY (number) in oldPointStructure object includes the letter of the word we're looking at in the outer loop then do: 
-      letterPoints += `Score for '${word[i]}': ${pointValue}\n`
+      letterPoints += `Score for '${userWord[i]}': ${pointValue}\n`
       //add the text above "Points for ${lettr of word} : ${KEY (number that equals points)}"
       //letterPoints += `Score for '${word[i]}': ${pointValue}\n`
 		 //let letter = word[i];
@@ -100,16 +100,16 @@ let vowelBonusScore = {
 
 };
 
-function scrabbleScore(word) {
-  word = word.toLowerCase();
+function scrabbleScore(userWord) {
+  userWord = userWord.toLowerCase();
 	let letterPoints = 0;
  
-	for (let i = 0; i < word.length; i++) {
+	for (let i = 0; i < userWord.length; i++) {
     //loops over the word for each letter
 	  //for (const letterKey in newPointStructure) {
       //goes over each KEY in oldPointStructure once and follows instructions below
       // line 19+ line 21 goes over each KEY in object once for each letter in word entered
-      let letter = word[i];
+      let letter = userWord[i];
 		 //if (newPointStructure[letterKey] = (word[i])) {
 			// if the KEY (number) in oldPointStructure object includes the letter of the word we're looking at in the outer loop then do: 
       letterPoints += newPointStructure[letter];
